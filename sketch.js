@@ -14,9 +14,12 @@ function draw(){
 
 function Pelota(){
 	this.size = 25;
-	this.x = random(25, width-25);
-	this.y = -25;
-	this.speed = 12;
+	this.speed = 5;
+
+	this.init = function(){
+		this.x = random(25, width-25);
+		this.y = -25;
+	}
 
 	this.render = function(){
 		fill(255);
@@ -25,6 +28,10 @@ function Pelota(){
 
 	this.update = function(){
 		this.y += this.speed;
+		if (this.y + this.size > height){
+			this.init();
+		}
 
 	}
+	this.init();
 }
